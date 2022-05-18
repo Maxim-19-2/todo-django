@@ -1,5 +1,5 @@
 import re
-from turtle import title
+
 from urllib import request
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -9,10 +9,15 @@ from django.views import View
 
 # Create your views here.
 def index(request):
-    t=Todo(0, "funktioniert", "19. Mai 2022", 60)
-    t.save()
-    t2=Todo(1, "HA2 erledigen", "11. Mai 2022", 30)
-    t2.save()
+    if request.method == 'POST':
+        newTODO = Todo(
+            title = request.POST['title'],
+            date = request.POST['date'],
+            progress = request.POST['progress']
+        )
+        newTODO.save()
+        return redirect('/')
+    
 
     todos = Todo.objects.all()
     t = loader.get_template('index.html')
@@ -25,14 +30,17 @@ def my_view(request):
         print("hier")
         #return HttpResponse(result)
 
-def edit_todo(req):
-    return render(req, 'edit_todo.html')
+def edit_todo(request):
+    return render(request, 'edit_todo.html')
 
-def add_todo(req):
-    return render(req, 'add_todo.html')
+def add_todo(request):
+    return render(request, 'add_todo.html')
 
-def impressum(req):
-    return render(req, 'impressum.html')
+
+def impressum(request):
+    return render(request, 'impressum.html')
+
+
 
 #def delete(request, pk):
 #    todo = Todo.objects.get(id=pk)
