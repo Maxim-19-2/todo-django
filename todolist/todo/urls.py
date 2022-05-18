@@ -5,4 +5,5 @@ urlpatterns = [
     path('edit_todo.html', views.edit_todo, name='edit_todo.html'),
     path('add_todo.html', views.add_todo, name='add_todo.html'),
     path('impressum.html', views.impressum, name='impressum.html'),
+    path('delete/<str:toDelete>', views.delete, name='delete'),
 ]

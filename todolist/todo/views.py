@@ -18,7 +18,6 @@ def index(request):
         newTODO.save()
         return redirect('/')
     
-
     todos = Todo.objects.all()
     t = loader.get_template('index.html')
     c = dict({'todos': todos})
@@ -40,9 +39,7 @@ def add_todo(request):
 def impressum(request):
     return render(request, 'impressum.html')
 
-
-
-#def delete(request, pk):
-#    todo = Todo.objects.get(id=pk)
-#    todo.delete()
-#    return redirect('/')
+def delete(request, toDelete):
+    todo = Todo.objects.get(id=toDelete)
+    todo.delete()
+    return redirect('/')
