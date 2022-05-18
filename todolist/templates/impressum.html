@@ -13,6 +13,9 @@
   </head>
   <body class= "bg-light">
     <div class = "container-fluid">
+      {% extends "base.html" %}
+      {% block title %}{{name}}’s - {{ block.super }}{% endblock %}
+      {% block content %}
       <h1>Impressum</h1>
       <p><b>Authors:</b> 
         <ul>
@@ -21,7 +24,8 @@
         </ul>
       </p>
       <p><b>Kontakt:</b> Straße des 17. Juni 135 10623 Berlin</p> 
-
+      <a href="/" class="col-2 btn-primary btn mt-4">Zurück</a>
+      {% endblock %}
     </div>
 
 
