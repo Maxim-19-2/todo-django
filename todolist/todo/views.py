@@ -1,5 +1,4 @@
 import re
-from turtle import pensize, title
 
 from urllib import request
 from django.shortcuts import render, redirect
