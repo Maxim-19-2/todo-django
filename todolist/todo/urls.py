@@ -7,4 +7,5 @@ urlpatterns = [
     path('impressum.html', views.impressum, name='impressum.html'),
     path('delete/<str:toDelete>', views.delete, name='delete'),
     path('edit/<str:toEdit>', views.edit, name='edit'),
+    path('update/<str:toBeUpdated>', views.update, name='update'),
 ]

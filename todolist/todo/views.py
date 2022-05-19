@@ -23,12 +23,6 @@ def index(request):
     c = dict({'todos': todos})
     return HttpResponse(t.render(c))
 
-def my_view(request):
-    if request.method == 'GET':
-        # <view logic>
-        print("hier")
-        #return HttpResponse(result)
-
 def edit_todo(request):
     return render(request, 'edit_todo.html')
 
@@ -45,7 +39,14 @@ def delete(request, toDelete):
     return redirect('/')
 
 def edit(request, toEdit):
-    todo = Todo.objects.get(id=toEdit)
-    t = loader.get_template('edit_todo.html')
-    c = dict({'todos':todo})
-    return HttpResponse(t.render(c))
+    findTodo = Todo.objects.get(id=toEdit)
+    c = dict({'todo':findTodo})
+    return render(request, 'edit_todo.html', c)
+
+def update(request, toBeUpdated):
+    todo = Todo.objects.get(id=toBeUpdated)
+    todo.title = request.POST['title']
+    todo.date = request.POST['date']
+    todo.progress = request.POST['progress']
+    todo.save()
+    return redirect('/')
