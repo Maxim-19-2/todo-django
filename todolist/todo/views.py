@@ -1,4 +1,5 @@
 import re
+from turtle import pensize, title
 
 from urllib import request
 from django.shortcuts import render, redirect
@@ -17,7 +18,7 @@ def index(request):
         )
         newTODO.save()
         return redirect('/')
-    
+
     todos = Todo.objects.all()
     t = loader.get_template('index.html')
     c = dict({'todos': todos})
@@ -43,3 +44,9 @@ def delete(request, toDelete):
     todo = Todo.objects.get(id=toDelete)
     todo.delete()
     return redirect('/')
+
+def edit(request, toEdit):
+    todo = Todo.objects.get(id=toEdit)
+    t = loader.get_template('edit_todo.html')
+    c = dict({'todos':todo})
+    return HttpResponse(t.render(c))
