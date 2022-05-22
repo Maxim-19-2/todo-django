@@ -1,9 +1,9 @@
-# Create a todo-list with django
+# Create a todo-list with Django
 This is a simple todo-list application created with the Django framework.
 
 # Getting Started
 1. Install Python
-2. Install [Django] (https://docs.djangoproject.com/en/4.0/topics/install/)
+2. Install Django following instructions at: https://docs.djangoproject.com/en/4.0/topics/install/
 3. Clone this git repository and navigate to the "todolist" folder. There should be a manage.py file located here.
 4. Open up a terminal and type:
 ```
