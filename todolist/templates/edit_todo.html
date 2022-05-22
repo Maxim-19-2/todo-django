@@ -22,7 +22,7 @@
       <div class="card-body">
         <h3 class="card-title text-center">Todo bearbeiten</h5>
           <p class="card-text">
-          <form action="../update/{{todo.id}}" method="POST">
+          <form action="../update/{{todo.id}}" method="POST"> <!--  -->
             {% csrf_token %}
             <label for="beschreibung">Beschreibung:</label>
             <textarea class="form-control mt-2" name="title" rows="3" placeholder="" maxlength="160"
